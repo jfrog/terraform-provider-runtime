@@ -1,0 +1,14 @@
+terraform-provider-runtime
+dist/
+.idea/
+.modules/
+.terraform*
+terraform.d/
+terraform.tfstate
+terraform.tfstate.backup
+lib/
+*.lic
+/resources/
+coverage.txt
+.scannerwork
+
