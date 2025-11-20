@@ -1,0 +1,60 @@
+---
+page_title: "Provider: Runtime"
+description: |-
+  The JFrog Runtime provider is used to interact with the JFrog Runtime API features.
+---
+
+# Runtime Provider
+
+{{ .Description | trimspace }}
+
+## Example Usage
+
+{{ tffile "examples/provider/provider.tf" }}
+
+## Authentication
+
+The Runtime provider supports several ways to authenticate:
+
+### Identity Token (Recommended)
+
+The provider requires an Identity Token with Admin privileges to interact with the Runtime API.
+
+```terraform
+provider "runtime" {
+  url          = "https://myinstance.jfrog.io"
+  access_token = "my-identity-token"
+}
+```
+
+You can also use environment variables:
+
+```bash
+export JFROG_URL="https://myinstance.jfrog.io"
+export JFROG_ACCESS_TOKEN="my-identity-token"
+```
+
+### OIDC Provider
+
+```terraform
+provider "runtime" {
+  url                = "https://myinstance.jfrog.io"
+  oidc_provider_name = "my-oidc-provider"
+}
+```
+
+### Terraform Cloud Workload Identity
+
+When running in Terraform Cloud with proper OIDC configuration, the provider can automatically use workload identity tokens.
+
+## Schema
+
+{{ .SchemaMarkdown | trimspace }}
+
+## Runtime API Endpoints
+
+This provider uses the following JFrog Runtime API endpoints:
+
+* `POST /runtime/api/v1/registration_token` - Get current registration token
+* `DELETE /runtime/api/v1/registration_token/{token}` - Revoke token and create new one
+
