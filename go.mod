@@ -4,7 +4,7 @@ go 1.24.0
 
 require (
 	github.com/hashicorp/terraform-plugin-docs v0.20.1
-	github.com/hashicorp/terraform-plugin-framework v1.16.1
+	github.com/hashicorp/terraform-plugin-framework v1.17.0
 	github.com/hashicorp/terraform-plugin-framework-validators v0.19.0
 	github.com/jfrog/terraform-provider-shared v1.30.6
 )
